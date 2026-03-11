@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Structure du bloc d'annonce -->
+ <section class="flex justify-center pt-12">
+    <article class="w-xl  p-4 bg-white/60 border border-white/40 backdrop-blur-md rounded-3xl shadow-lg">
+
+        <!--titre-->
+        <h2 class="text-4xl text-center pb-2 font-semibold">{{annonce['titre']}}</h2>
+        <hr>
+
+
+        <!--auteur-->
+        <p class="text-xl italic pt-4">Activité proposée par <b>{{annonce['auteur']}}</b></p>
+
+
+        <!--description-->
+        <div class="flex justify-around">
+            <p class="w-70 pr-4 pt-6">{{annonce['description']}}</p>
+
+
+            <!--image de l'annonce-->
+            <img class="rounded-2xl w-56" src="{{annonce['img']}}"/>
+        </div>
+    </article>
+ </section>
+ 
+{% endblock %}

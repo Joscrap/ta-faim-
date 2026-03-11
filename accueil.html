@@ -1,0 +1,54 @@
+
+{% extends "base.html" %} 
+
+{% block content %}
+
+        <section class="text-center p-6 px-[700px]">
+            {% if nom %}
+            <h2 class="text-2xl font-semibold">Bonjour {{nom}} !</h2>
+            {% else %}
+            <h2 class="text-2xl font-semibold">Bonjour !</h2>
+            {% endif %}
+            <p>Online est un site d'invitation et d'organisation d'evenement</p>
+        </section>
+
+        <!--structure du bloc d'annonce-->
+
+        <section class="grid grid-cols-4 gap-22 p-10">
+
+            {% for annonces in annonces %}
+            <!-- structure d'une annonce-->
+            <a href="/annonce/{{annonces['_id']}}">
+            <article class="p-4 bg-white/40 border border-white/40 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 min-h-full">
+
+                <!--titre-->
+                <h2 class="text-center text-xl pb-2 font-semibold">{{annonces['titre']}}</h2>
+
+                <!--auteur-->
+                <p class="pb-2 text-sm italic">Activité proposée par <b>{{annonces['auteur']}}</b></p>
+
+                <div class="flex justify-around">
+                    <!--description-->
+                    <p class="text-center min-w-64 pr-4">{{annonces['description']}}</p>
+
+                    <!--image de l'annonce-->
+                    <div>
+                        <img class="w-3/4 rounded-lg" src="{{annonces['img']}}" />
+                    </div>
+                </div>
+
+                <!--coeur favorie-->
+                <button>❤️</button>
+                <button>💔</button>
+
+            </article>
+            </a>
+            {% endfor %}
+
+        </section>
+
+        <a href="/nouvelle_annonce" id="bouton1" class="fixed bottom-6 right-10 w-16 h-16 flex items-center justify-center bg-green-400 text-white text-5xl rounded-full hover:scale-110 transition leading-none pb-2"> 
+            +
+        </a>
+
+{% endblock %}

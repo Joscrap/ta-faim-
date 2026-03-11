@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Vote page de profil</h1>
+
+<h1>{{nom}}</h1>
+<h2>{{groupe}}</h2>
+
+<form action="{{ url_for('quitter_team') }}" method="POST">
+    <button type="submit" class="btn btn-danger">
+        Quitter la team
+    </button>
+</form>
+
+{% endblock %}
